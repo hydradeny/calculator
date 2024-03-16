@@ -8,6 +8,9 @@ var romanar = [...]string{"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD",
 var arabar = [...]int{1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000}
 
 func RomanToArab(roman string) (arab int, err error) {
+	if roman == "" {
+		return arab, fmt.Errorf("empty string")
+	}
 	c := 0
 	i := 0
 	for n := len(romanar) - 1; n >= 0 && i < len(roman); {
@@ -33,7 +36,6 @@ func RomanToArab(roman string) (arab int, err error) {
 	if i < len(roman) {
 		return arab, fmt.Errorf("bad roman number")
 	}
-
 	return arab, nil
 }
 
