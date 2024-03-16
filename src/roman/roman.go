@@ -40,5 +40,19 @@ func RomanToArab(roman string) (arab int, err error) {
 }
 
 func ArabToRoman(arab int) (roman string, err error) {
-	return "", nil
+	if arab <= 0 || arab > 3999 {
+		return roman, fmt.Errorf("bad arabic number")
+	}
+	n := len(arabar) - 1
+	var result []byte
+	for arab > 0 {
+		if arab >= arabar[n] {
+			result = append(result, romanar[n]...)
+			arab -= arabar[n]
+
+		} else {
+			n--
+		}
+	}
+	return string(result), nil
 }
