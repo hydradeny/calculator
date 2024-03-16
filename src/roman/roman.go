@@ -10,10 +10,9 @@ var arabar = [...]int{1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000}
 func RomanToArab(roman string) (arab int, err error) {
 	c := 0
 	i := 0
-	//TODO может быть обращение за пределы строки roman
 	for n := len(romanar) - 1; n >= 0 && i < len(roman); {
 		pir := n%2 == 1
-		if roman[i] == romanar[n][0] && (!pir || roman[i+1] == romanar[n][1]) {
+		if roman[i] == romanar[n][0] && (!pir || (i+1 != len(roman) && roman[i+1] == romanar[n][1])) {
 			arab += arabar[n]
 			if pir {
 				n--
@@ -36,4 +35,8 @@ func RomanToArab(roman string) (arab int, err error) {
 	}
 
 	return arab, nil
+}
+
+func ArabToRoman(arab int) (roman string, err error) {
+	return "", nil
 }
