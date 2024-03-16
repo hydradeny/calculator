@@ -7,6 +7,9 @@ import (
 var romanar = [...]string{"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"}
 var arabar = [...]int{1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000}
 
+// Function converts a string which contains roman number,
+// formed by classical rules. So number can be in range
+// from 1 to 3999 included
 func RomanToArab(roman string) (arab int, err error) {
 	if roman == "" {
 		return arab, fmt.Errorf("empty string")
@@ -39,6 +42,8 @@ func RomanToArab(roman string) (arab int, err error) {
 	return arab, nil
 }
 
+// Function converts arabic number to roman number according to
+// classical rules. So value can be in range from 1 to 3999 included
 func ArabToRoman(arab int) (roman string, err error) {
 	if arab <= 0 || arab > 3999 {
 		return roman, fmt.Errorf("bad arabic number")
