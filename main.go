@@ -37,7 +37,7 @@ func Calculate(text string) string {
 	}
 	switch {
 	// for arabic input
-	case strings.Contains(arabicNumChars, string(parts[0][0])):
+	case strings.Contains(arabicNumChars, parts[0][0:1]):
 		a, err := strconv.Atoi(parts[0])
 		if err != nil {
 			panic(err)
@@ -58,7 +58,7 @@ func Calculate(text string) string {
 		}
 		return strconv.Itoa(c)
 		// for roman input
-	case strings.Contains(romanNumChars, string(parts[0][0])):
+	case strings.Contains(romanNumChars, parts[0][0:1]):
 		a, err := roman.RomanToArab(parts[0])
 		if err != nil {
 			panic(err)
